@@ -8,6 +8,45 @@
     <script src="./script.js" defer></script>
 </head>
 <body>
-    
+    <div class="boxed-content">
+        <p class="upper-case bold logo">Library.</p>
+        <div class="hero">
+            <div class="hero-text">
+                <h1>Your favorite books</h1>
+                <p class="subtitle">Gathered in one place, in your pocket. Need to wishlist your next reading ? Add a new book below.</p>
+            </div>
+            <button id="add-book" class="bold">+ Add a book</button>
+            <img class="hero-illustration" src="./graphic-assets/reading-woman-illustration.png">
+        </div>
+        <div class="book-section">
+                <h2>Recent books</h2>
+                <div id="book-shelf"></div>
+        </div>
+    </div>
+    <dialog id="dialog-box" open>
+        <form>
+            <div class="form-header">
+                <h2>New book joining!</h2>
+                <img src="./graphic-assets/close-icon.svg" id="close-icon">
+            </div>
+            <div class="field">
+                <label for="book-title">Title</label>
+                <input type="text" id="book-title" name="book_title">
+            </div>
+            <div class="field">
+                <label for="book-author">Author</label>
+                <input type="text" id="book-author" name="book_author">
+            </div>
+            <div class="field">
+                <label for="nb-pages">Number of pages</label>
+                <input type="number" id="nb-pages" name="number_of_pages">
+            </div>
+            <div class="checkbox-read">
+                <input type="checkbox" id="toggle-read" name="toggle_read">
+                <label for="toggle-read">Mark as read</label>
+            </div>
+            <button id="submit-btn" class="bold" type="submit">Add to library</button>
+        </form>
+    </dialog>
 </body>
 </html>
