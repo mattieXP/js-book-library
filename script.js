@@ -98,6 +98,7 @@ const drawBook = function(book) {
     readToggle.checked = book.read;
     divRead.appendChild(readToggle);
     let readLabel = document.createElement("p");
+    readLabel.classList = "read-label subtitle";
     readLabel.textContent = isRead(book.read);
     divRead.appendChild(readLabel);
 
@@ -132,6 +133,26 @@ submitButton.addEventListener("click", event => {
     dialogBox.close();
 });
 
-//Change Read status from page to object
+// Change status of a book in the DOM -> in the object
+bookShelf.addEventListener("click", event => {
+let bookParent = event.target.closest(".book-card");
 
-//Delete un objet et le supprimer du book Shelf
+    if (bookParent) {
+
+        let bookID = bookParent.dataset.id;
+        let currentBook = bookList.find((element) => element.id == bookID);
+
+        if (event.target.classList.contains("card-toggle")) {
+            let toggleLabel = bookParent.querySelector(".read-label");
+            toggleLabel.textContent = isRead(event.target.checked);
+            currentBook.read = !(currentBook.read);
+            }
+
+        if (event.target.classList.contains("delete-btn")) {
+            let deleteObject = bookList.findIndex((element) => element.id == bookID);
+            bookList.splice(deleteObject, 1);
+            bookParent.remove();
+        } 
+    };
+
+});
