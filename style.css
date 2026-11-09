@@ -26,7 +26,6 @@
 
 h1 {
     font-size: 1.75rem;
-    color: var(--acent-color);
     font-weight: 800;
     margin-bottom: 8px;
 }
@@ -39,7 +38,10 @@ h2 {
 body {
     font-family: "Mona Sans", system-ui, sans-serif;
     display: grid;
+    grid-template-rows: 1fr 50px;
     justify-content: center;
+    min-height: 100vh;
+    margin: 0px;
 }
 
 form {
@@ -60,18 +62,26 @@ label {
     font-size: 0.9rem;
 }
 
+a {
+    color: black;
+}
+
 .boxed-content {
+    grid-row: 1 / 2;
     max-width: 1280px;
     display: grid;
+    grid-template-rows: auto auto 1fr;
     justify-content: center;
     padding: 10px 50px;
 }
 
 .logo {
     text-align: center;
+    grid-row: 1 / 2;
 }
 
 .hero {
+    grid-row: 2 / 3;
     background-color: var(--main-color);
     display: grid;
     grid-template: 4fr 3fr / 1fr 1fr;
@@ -197,10 +207,12 @@ label {
 }
 
 #book-shelf {
+    grid-row: 3 / 4;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 50px;
     justify-items: center;
+    margin-bottom: 25px;
 }
 
 .book-cover {
@@ -247,4 +259,15 @@ label {
 
 .card-toggle:checked {
     accent-color: var(--main-color);
+}
+
+footer {
+    border-radius: 6px 6px 0px 0px;
+    grid-row: 2 / 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color);
+    padding: 10px;
+    height: 40px;
 }
